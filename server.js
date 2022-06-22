@@ -1,7 +1,7 @@
 var express = require("express");
 var serveStatic = require("serve-static");
-var history = require('connect-history-api-fallback');
 require('path');
+
 var app = express();
 
 var https_redirect = function(req, res, next) {
@@ -16,7 +16,6 @@ var https_redirect = function(req, res, next) {
   }
 };
 
-app.use(history());
 app.use(https_redirect);
 app.use(serveStatic(__dirname + "/dist"));
 
